@@ -68,6 +68,10 @@ In this exercise you will:
    ```
 
    * Open `solutions/sample.i` in an editor and note how `#include <stdio.h>` expands and macros are handled.
+      Der Präprozessor verarbeitet #include und #define.
+      Die Datei sample.i enthält den reinen C-Code nach Präprozessor-Bearbeitung.
+
+
 3. **Compile to assembly** (`-S`):
 
    ```bash
@@ -75,6 +79,7 @@ In this exercise you will:
    ```
 
    * Examine `solutions/sample.s` to see the generated assembly instructions for `printf` and `return`.
+     Der Compiler übersetzt C in Assembler-Code.Datei sample.s enthält Instruktionen wie mov, call, ret.
 4. **Assemble** (`-c`):
 
    ```bash
@@ -82,6 +87,7 @@ In this exercise you will:
    ```
 
    * Verify that `solutions/sample.o` is an object file (e.g., with `file sample.o`).
+     Der Assembler übersetzt den Assembler-Code in Maschinen-Code (Objektdatei) und prüft mit:file sample.o
 5. **Link** to produce an executable:
 
    ```bash
@@ -90,6 +96,7 @@ In this exercise you will:
 
    * Run `./solutions/sample` and confirm it prints `Hello, PP7!`.
 6. **Explain** in comments or a short README how each stage transforms the code.
+   **Antwort** Der Linker verbindet sample.o mit Standardbibliotheken (z. B. libc für printf). Das Ergebnis ist eine lauffähige Datei: sample
 
 ---
 
@@ -131,6 +138,9 @@ In this exercise you will:
    vim -c ":%s/printf/debug_printf/g" -c ":wq" solutions/debug_sample.c
    ```
 7. **Explain** each tool’s approach to regex-based search and replace, and when you might prefer one over the others.
+   **Antwort** -c "...": führt Vim-Befehle automatisch aus
+               :%s/.../.../g: Regex-Ersetzung
+               :wq: speichert und schließt 
 
 ---
 
